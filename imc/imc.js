@@ -6,7 +6,8 @@ function imc() {
     const peso = document.getElementById('peso').value;
     const resultado = document.getElementById('resultado');
 
-    if (nome.value !== '' && altura !== '' && peso !== '') {
+    if (nome !== '' && altura !== '' && peso !== '') {
+
         const valorIMC = (peso / (altura * altura)).toFixed(1);
 
         let classificacao = "";
@@ -26,6 +27,7 @@ function imc() {
         }
 
         resultado.textContent = `${nome}, seu IMC é ${valorIMC}. Você está ${classificacao}`;
+    
     } else {
         resultado.textContent = 'Preencha todos os campos.';
     }
