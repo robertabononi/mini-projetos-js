@@ -1,5 +1,4 @@
-const ligar = document.getElementById('ligar');
-const desligar = document.getElementById('desligar');
+const ligarEDesligar = document.getElementById('ligarEDesligar');
 const lampada = document.getElementById('lampada');
 
 function lampadaLiga() {
@@ -14,6 +13,16 @@ function lampadaDesliga() {
        }
 }
 
+function lampadaLigaEDesliga() {
+    if (ligarEDesligar.textContent == "Ligar") {
+        lampadaLiga();
+        ligarEDesligar.textContent = "Desligar";
+    } else {
+        lampadaDesliga();
+        ligarEDesligar.textContent = "Ligar";
+    }
+}
+
 function lampadaQuebra() {
     lampada.src = "./images/quebrada.jpg";
 }
@@ -22,8 +31,7 @@ function estaQuebrada() {
     return lampada.src.indexOf('quebrada') > -1;
 }
 
-ligar.addEventListener('click', lampadaLiga);
+ligarEDesligar.addEventListener('click', lampadaLigaEDesliga);
 lampada.addEventListener('mouseover', lampadaLiga);
-desligar.addEventListener('click', lampadaDesliga);
 lampada.addEventListener('mouseleave', lampadaDesliga);
 lampada.addEventListener('dblclick', lampadaQuebra);
